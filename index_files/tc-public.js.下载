@@ -1,0 +1,92 @@
+Array.prototype.remove = function(dx){ 
+    if(isNaN(dx)||dx>this.length){return false;} 
+    this.splice(dx,1); 
+};
+
+if(!Array.prototype.indexOf){
+	Array.prototype.indexOf = function(key){
+		for(var i in this){
+			if(this[i]==key)
+				return i;
+		}
+	};
+}
+
+var global = global || {};
+global["zz_id_sel"] = "zz";
+global.cache = [];
+
+
+/**
+ * 获得遮罩层
+ * 如果遮罩层不存在 创建遮罩层
+ * 如果遮罩层存在，直接返回
+ * @returns
+ */
+function _createZZ() {
+	var $zz = $("#"+global["zz_id_sel"]);
+	if ($zz.length == 0) {
+		$zz = $("<div></div>");
+		$zz.attr("id", global["zz_id_sel"]);
+		$zz.css({
+			"width" : "100%",
+			"height" : "100%",
+			"position" : "fixed",
+			"top" : "0px",
+			"left" : "0px",
+			"display" : "none",
+			"background" : "black",
+			"opacity" : 0.4,
+			"z-index":"2"
+		});
+		$zz.appendTo($("body"));
+	}
+	return $zz;
+}
+/**
+ * div居中
+ * @param ele
+ */
+function _mid(ele){
+	var width = ele.width();
+	var height = ele.height();
+	ele.css({
+		"position" : "fixed",
+		"top" : "50%",
+		"left" : "50%",
+		"margin-left":"-"+width/2+"px",
+		"margin-top":"-"+height/2+"px",
+		"display":"none"
+	});
+}
+
+
+function showDiv(divSeletor){
+	var $div = $(divSeletor);
+	if($div.length>0){
+		global.cache.push(divSeletor);
+		_mid($div);
+		var $zz = _createZZ();
+		$zz.show();
+		$div.css({"z-index":"3"});
+		$div.fadeIn("slow",function(){
+			$zz.click(function(){
+				hideDiv(divSeletor);
+			});
+		});
+	}
+}
+
+function hideDiv(divSeletor){
+	var $div = $(divSeletor);
+	if($div.length>0){
+		$div.fadeOut("slow",function(){
+			global.cache.remove(global.cache.indexOf(divSeletor));
+			if(global.cache.length == 0){
+				var $zz = _createZZ();
+				$zz.hide();
+				$zz.unbind("click");
+			}
+		});
+	}
+}

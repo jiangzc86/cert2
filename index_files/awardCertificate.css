@@ -1,0 +1,224 @@
+@charset "utf-8";
+
+/* css document */
+
+/*h5样式*/
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+body h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+samp,
+div,
+ul li,
+ol li,
+a,
+dl,
+dt,
+dd,
+select,
+input,
+button,
+textarea {
+	font-family: "微软雅黑";
+	font-weight: normal;
+	list-style-type: none;
+	text-decoration: none;
+	list-style: none;
+	outline: none;
+}
+
+body{
+	background: #f9f9f9;
+}
+.wrap{
+	float: left;
+	width: 100%;
+	height:auto;
+}
+
+/*logo区域*/
+.logo-area{
+	float: left;
+	width: 100%;
+	height:.93rem;
+	background:#fff;
+	border-top:1px solid #d9d9d9;
+	border-bottom:1px solid #d9d9d9;
+}
+.logo-area img{
+	float: left;
+	width:3.54rem;
+	height:.4rem;
+	margin: .26rem 0 0 .4rem;
+}
+
+/*获奖名称区域*/
+.jp-area{
+	float: left;
+	width: 100%;
+	height:.68rem;
+	background: #e2eeff;
+}
+.jp-area img{
+	float: left;
+	width:.3rem;
+	height:.35rem;
+	margin:.15rem .15rem 0 .29rem;
+}
+.jp-area p{
+	float: left;
+	color: #1698ff;
+	font-size: .24rem;
+	line-height: .68rem;
+	width: 85%;
+	white-space: nowrap;
+}
+
+
+/*证书区域*/
+.certi{
+	float: left;
+	width: 100%;
+	height:auto;
+	text-align: center;
+	margin-top: .35rem;
+}
+.certi img{
+	width:5.75rem;
+	height:4.04rem;
+	border:1px solid #ccc;
+	margin-bottom: -.3rem;
+}
+.certi button{
+	width: 3.73rem;
+	height:.6rem;
+	background: url(../../../image/match/wap/btn-bg-blue.png) no-repeat;
+	background-size:100%;
+	color: #fff;
+	font-size: .28rem;
+	line-height: .58rem;
+}
+
+
+/*常置区域*/
+.bottom{
+	float: left;
+	width: 100%;
+	height:1.3rem;
+	background: url(../../../image/match/wap/change-bg.png) repeat;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
+.bottom .bot-lf{
+	float: left;
+	width: 55%;
+}
+.bottom .bot-lf img{
+	float: left;
+	width:.82rem;
+	height:.82rem;
+	margin:.24rem .17rem 0 .28rem;
+}
+.bottom .bot-lf b{
+	float: left;
+	color: #fff;
+	font-size: .32rem;
+	font-weight: normal;
+	margin:.25rem 0 .03rem;
+}
+.bottom .bot-lf p{
+	float: left;
+	color: #fff;
+	font-size: .22rem;
+}
+.bottom .bot-rt{
+	float: right;
+	width: 36.5%;
+	margin-top: .42rem;
+}
+.bottom .bot-rt button{
+	float: left;
+	width: 1.3rem;
+	height:.38rem;
+	color: #fff;
+	border:1px solid #fff;
+	border-radius: .06rem;
+	font-size: .24rem;
+	line-height: .36rem;
+	background: transparent;
+	margin-top: .03rem;
+}
+.bottom .bot-rt i.line{
+	float: left;
+	width: 1px;
+	height:.45rem;
+	background: #fff;
+	margin:0 .25rem;
+}
+.bottom .bot-rt a{
+	float: left;
+	width:.25rem;
+	height:.25rem;
+	background: url(../../../image/match/wap/h5-close.png) no-repeat;
+	background-size: 100%;
+	margin-top: .1rem;
+}
+
+
+/*查看大图 弹窗*/
+.tc-image{
+	float: left;
+	width: 100%;
+	height:100%;
+	text-align: center;
+	display: none;
+	position: relative;
+}
+.tc-image a{
+	float: right;
+	width:.35rem;
+	height:.35rem;
+	background: url(../../../image/match/wap/h5-close2.png) no-repeat;
+	background-size:100%;
+	position: absolute;
+	top:.55rem;
+	right:.45rem;
+}
+.tc-image img{
+	width: 5.67rem;
+	height: 8rem;
+	margin-top: 1.3rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

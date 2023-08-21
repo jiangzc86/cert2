@@ -1,0 +1,11 @@
+function bas(){
+    $.ajaxSetup({
+        beforeSend: function(xhr, options){
+            xhr.setRequestHeader("X-UserType-Id", headerUtypeId);
+        },
+        dataFilter:function(a,b){
+            var c=dataFF(a,b);
+            return c;
+        }
+    });
+}

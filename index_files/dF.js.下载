@@ -1,0 +1,83 @@
+function dataFF(h,e){
+    if(typeof h!="string"){
+        return h;
+    }
+    if(h.indexOf(cPrefix)==0){
+        var alertMsg = "您刚刚切换了身份，操作前请先刷新页面";
+        if (Bak.Common.isPC()){
+            popup({
+                alertMsg: alertMsg,
+                showCancel: true,
+                _callBack: function(){
+                    location.reload();
+                }
+            });
+        }else {
+            if (confirm(alertMsg)){
+                location.reload();
+            }
+        }
+        return;
+    }
+    if(h.indexOf(lPrefix)==0){
+        var alertMsg = "您因长时间未操作或账号在他处登录，已退出系统，是否重新登录？";
+        if (Bak.Common.isPC()){
+            popup({
+                alertMsg: alertMsg,
+                showCancel: true,
+                _callBack: function(){
+                    Bak.Common.generateLoginWindow();
+                }
+            });
+        }else {
+            if (confirm(alertMsg)){
+                Bak.Common.generateLoginWindow();
+            }
+        }
+        return;
+    }
+    if(h.indexOf(fPrefix)==0){
+        $("#bgForce").show().height($(document).height());
+        $(".boxForce").show();
+        $(".closeForce").unbind("click");
+        $(".closeForce").bind("click",function(){
+            $("#bgForce").hide();
+            $(".boxForce").hide();
+        });
+        return;
+    }
+    if(h.indexOf(ePrefix)!=0){
+        return h;
+    }
+    h=h.substring(ePrefix.length,h.length);
+    var f=null;
+    try{
+        f=deBD(h,nEKStr);
+        if(!f){
+            $.ajax({
+                url:"/commons/getEk",
+                type:"post",
+                async:false,
+                success:function(a){
+                    if(a!="noKey"){
+                        window.nEKStr=a;
+                        f=deBD(h,nEKStr);
+                    }
+                }
+            });
+        }
+    }catch(g){
+        $.ajax({
+            url:"/commons/getEk",
+            type:"post",
+            async:false,
+            success:function(a){
+                if(a!="noKey"){
+                    window.nEKStr=a;
+                    f=deBD(h,nEKStr);
+                }
+            }
+        });
+    }
+    return f;
+};

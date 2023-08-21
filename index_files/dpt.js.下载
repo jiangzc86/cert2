@@ -1,0 +1,1 @@
+function enBD(b,a){var d=CryptoJS.enc.Utf8.parse(a);var c=CryptoJS.DES.encrypt(b,d,{mode:CryptoJS.mode.ECB,padding:CryptoJS.pad.Pkcs7});return c.toString()}function deBD(c,b){var d=CryptoJS.enc.Utf8.parse(b);var a=CryptoJS.DES.decrypt({ciphertext:CryptoJS.enc.Base64.parse(c)},d,{mode:CryptoJS.mode.ECB,padding:CryptoJS.pad.Pkcs7});return a.toString(CryptoJS.enc.Utf8)};
